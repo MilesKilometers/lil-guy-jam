@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://hwdocdycs6e4"]
+[gd_scene load_steps=6 format=3 uid="uid://hwdocdycs6e4"]
 
 [ext_resource type="Environment" uid="uid://da5f1054oub10" path="res://Assets/World Environment/EnvironmentSunset.tres" id="1_ormqy"]
 [ext_resource type="PackedScene" uid="uid://bny0bl6t52u2v" path="res://Scenes/Player/player.tscn" id="2_00vsl"]
+[ext_resource type="PackedScene" uid="uid://f1v461npqvy2" path="res://Scenes/Boxes/box.tscn" id="3_4k50d"]
+[ext_resource type="PackedScene" uid="uid://cbh2ehfhrrtf3" path="res://Scenes/Buttons/button.tscn" id="4_i4ak4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4k50d"]
+albedo_color = Color(0.888193, 0.79493, 0.506747, 1)
 
 [node name="Test Level" type="Node3D"]
 
@@ -19,6 +24,16 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 use_collision = true
 size = Vector3(16, 0.5, 16)
+material = SubResource("StandardMaterial3D_4k50d")
 
 [node name="Player" parent="." instance=ExtResource("2_00vsl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25341, 1.69913, 3.5373)
+
+[node name="Box" parent="." instance=ExtResource("3_4k50d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 3.5)
+
+[node name="Box2" parent="." instance=ExtResource("3_4k50d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68258, 0.5, 1.48037)
+
+[node name="Button" parent="." instance=ExtResource("4_i4ak4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06639, 0.0458708, 3.92601)
