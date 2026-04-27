@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://bny0bl6t52u2v"]
+
+[ext_resource type="Script" uid="uid://be1hbsubp1mum" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
+[ext_resource type="Texture2D" uid="uid://dy7evt40e4r2p" path="res://Assets/Art/Player/lilguy-design1.png" id="1_uvnfx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a3d8c"]
+radius = 0.215073
+height = 1.07495
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpcdj"]
+atlas = ExtResource("1_uvnfx")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mtuoh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpcdj")
+}],
+"loop": true,
+"name": &"Dev",
+"speed": 5.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a3d8c"]
+radius = 0.05
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_a3d8c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_a3d8c")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_mtuoh")
+animation = &"Dev"
+
+[node name="Camroot" type="Node3D" parent="."]
+
+[node name="h" type="Node3D" parent="Camroot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.426091, -3.63588e-06)
+
+[node name="v" type="Node3D" parent="Camroot/h"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33455, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Camroot/h/v"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_a3d8c")
+spring_length = 2.5
+
+[node name="Camera3D" type="Camera3D" parent="Camroot/h/v/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.981607, 0.190912, 0, -0.190912, 0.981608, 0, 0, 2.456)
