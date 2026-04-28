@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://42arwl0kwrok"]
+
+[ext_resource type="Script" uid="uid://cxv7ajvap3vdw" path="res://Scenes/Puzzle Activatables/puzzle_activatable.gd" id="1_138s0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_138s0"]
+albedo_color = Color(0.1222, 0.1222, 0.47, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_138s0"]
+material = SubResource("StandardMaterial3D_138s0")
+size = Vector3(2.5, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m0s7m"]
+size = Vector3(2.5, 3, 1)
+
+[sub_resource type="Animation" id="Animation_138s0"]
+resource_name = "Open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3.1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3.1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m0s7m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m0s7m"]
+_data = {
+&"Open": SubResource("Animation_138s0"),
+&"RESET": SubResource("Animation_m0s7m")
+}
+
+[node name="PuzzleDoor" type="AnimatableBody3D" groups=["PuzzleDoor"]]
+script = ExtResource("1_138s0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_138s0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_m0s7m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_m0s7m")
+}
