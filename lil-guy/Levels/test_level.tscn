@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cbh2ehfhrrtf3" path="res://Scenes/Puzzle Activatables/button.tscn" id="4_i4ak4"]
 [ext_resource type="PackedScene" uid="uid://42arwl0kwrok" path="res://Scenes/Puzzle Activatables/puzzle_door.tscn" id="6_ub4j8"]
 [ext_resource type="PackedScene" uid="uid://ba3b3xquvc7oq" path="res://Scenes/Win Area/win_area.tscn" id="7_pvdih"]
-[ext_resource type="PackedScene" uid="uid://3hlumosa5q1i" path="res://Scenes/moving platform/moving_platform.tscn" id="9_4t6x8"]
+[ext_resource type="PackedScene" uid="uid://3hlumosa5q1i" path="res://Scenes/moving platform/moving_platform tall.tscn" id="9_4t6x8"]
 
 [node name="Test Level" type="Node3D"]
 
@@ -127,8 +127,7 @@ transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 1.9, -10.9838, 0.5, -0.0171636
 
 [node name="Moving Platform" parent="." instance=ExtResource("9_4t6x8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.5)
-move_amount = 5.0
+move_amount = 2.9
 move_speed = 1.0
-move_direction_x = 1
-move_direction_y = 1
+move_direction_y = -1
 should_move = true

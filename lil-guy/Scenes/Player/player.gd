@@ -5,9 +5,11 @@ extends CharacterBody3D
 #Camera
 @onready var h: Node3D = $Camroot/h
 @onready var v: Node3D = $Camroot/h/v
+@onready var spring_arm_3d: SpringArm3D = $Camroot/h/v/SpringArm3D
+@onready var camera_3d: Camera3D = $Camroot/h/v/SpringArm3D/Camera3D
 @onready var head_base_height: Vector3 = Vector3(0.0,h.transform.origin.y,0.0)
-var camrot_h: float = 0
-var camrot_v: float = 0
+var camrot_h: float
+var camrot_v: float
 var cam_h_min: float
 var cam_h_max: float
 var cam_v_min: float = -40.0
@@ -30,12 +32,15 @@ var push_strength: float = 20.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	h.set_as_top_level(true)
+	camrot_h = h.rotation_degrees.y
+	camrot_v = v.rotation_degrees.x
 
 func _unhandled_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseMotion:
-		camrot_h += -event.relative.x * cam_sensitivity
-		camrot_v += -event.relative.y * cam_sensitivity
+		camrot_h += -event.screen_relative.x * cam_sensitivity
+		camrot_v += -event.screen_relative.y * cam_sensitivity
 		camrot_v = clamp(camrot_v, cam_v_min, cam_v_max)
 		_rotate_camera()
 		
@@ -59,11 +64,10 @@ func _process(delta: float) -> void:
 	# Gets the desired movement direction based on the camera rotation
 	direction = (h.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	# Fix camera jitter by interpolating position when fps is higher than physics tick rate
+	# Fix camera jitter by interpolating position
 	var fps: float = Engine.get_frames_per_second()
 	var lerp_interval = direction / fps
 	var lerp_position = (global_transform.origin + head_base_height) + lerp_interval
-	h.set_as_top_level(true)
 	h.global_transform.origin = h.global_transform.origin.lerp(lerp_position, 60 * delta)
 
 func _physics_process(delta: float) -> void:
@@ -82,7 +86,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _rotate_camera():
-	h.rotation_degrees.y = camrot_h
+	h.global_rotation_degrees.y = camrot_h
 	v.rotation_degrees.x = camrot_v
 
 func _move_character(delta):

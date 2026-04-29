@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://3hlumosa5q1i"]
+[gd_scene load_steps=6 format=3 uid="uid://3hlumosa5q1i"]
 
 [ext_resource type="Material" uid="uid://cu1i3q4y40xbf" path="res://Assets/Materials/blue_stone.tres" id="1_gpp3o"]
 [ext_resource type="Script" uid="uid://cu7ag5oxbjrrx" path="res://Scenes/moving platform/moving_platform.gd" id="1_muegp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_muegp"]
 material = ExtResource("1_gpp3o")
-size = Vector3(1.5, 3, 1.5)
+size = Vector3(1.5, 2.5, 1.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4j6cv"]
-size = Vector3(1.5, 3, 1.5)
+size = Vector3(1.5, 2.5, 1.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mqe5p"]
+material = ExtResource("1_gpp3o")
+size = Vector2(1.5, 1.5)
 
 [node name="Moving Platform" type="AnimatableBody3D"]
 physics_interpolation_mode = 1
@@ -16,9 +20,13 @@ collision_mask = 6
 script = ExtResource("1_muegp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1.5, 0.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1.25, 0.75)
 mesh = SubResource("BoxMesh_muegp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1.5, 0.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1.25, 0.75)
 shape = SubResource("BoxShape3D_4j6cv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.01, 0.75)
+mesh = SubResource("PlaneMesh_mqe5p")
