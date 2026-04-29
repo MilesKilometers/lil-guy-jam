@@ -1,12 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://42arwl0kwrok"]
 
 [ext_resource type="Script" uid="uid://cxv7ajvap3vdw" path="res://Scenes/Puzzle Activatables/puzzle_activatable.gd" id="1_138s0"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_138s0"]
-albedo_color = Color(0.1222, 0.1222, 0.47, 1)
+[ext_resource type="Material" uid="uid://cihelxdk1ujxf" path="res://Assets/Materials/puzzle_door.tres" id="2_m0s7m"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_138s0"]
-material = SubResource("StandardMaterial3D_138s0")
+material = ExtResource("2_m0s7m")
 size = Vector3(2.5, 3, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0s7m"]
@@ -25,7 +23,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -3.1, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, -2.9, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false

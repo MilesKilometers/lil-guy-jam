@@ -12,7 +12,7 @@ var cam_h_min: float
 var cam_h_max: float
 var cam_v_min: float = -40.0
 var cam_v_max: float = 70.0
-var cam_sensitivity: float = 0.5
+var cam_sensitivity: float = 0.3
 
 #Movement
 var direction: Vector3
@@ -51,8 +51,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if Input.is_action_just_pressed("Jump"):
 		if is_on_floor():
-			velocity.y = 5
-	
+			velocity.y = 3	
 
 func _process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.

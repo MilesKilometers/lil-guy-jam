@@ -37,7 +37,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_a3d8c")
 

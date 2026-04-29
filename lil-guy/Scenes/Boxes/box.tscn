@@ -8,6 +8,7 @@ albedo_color = Color(0.59, 0.397267, 0.177, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_du2k1"]
 
 [node name="Box" type="RigidBody3D" groups=["ButtonKey", "WindPush"]]
+physics_interpolation_mode = 1
 collision_layer = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbh2ehfhrrtf3"]
 
 [ext_resource type="Script" uid="uid://cxv7ajvap3vdw" path="res://Scenes/Puzzle Activatables/puzzle_activatable.gd" id="1_83lp4"]
-[ext_resource type="Material" uid="uid://25bofp38gsoq" path="res://Assets/Materials/button.tres" id="2_kfpbt"]
+[ext_resource type="Material" uid="uid://ctm0t5tcihe0v" path="res://Assets/Materials/winarea.tres" id="2_kfpbt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6pjk0"]
 resource_local_to_scene = true

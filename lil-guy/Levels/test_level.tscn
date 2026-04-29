@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://hwdocdycs6e4"]
+[gd_scene load_steps=10 format=3 uid="uid://hwdocdycs6e4"]
 
 [ext_resource type="Environment" uid="uid://da5f1054oub10" path="res://Assets/World Environment/EnvironmentSunset.tres" id="1_ormqy"]
 [ext_resource type="PackedScene" uid="uid://bny0bl6t52u2v" path="res://Scenes/Player/player.tscn" id="2_00vsl"]
+[ext_resource type="Material" uid="uid://bbmdjnq0ab2bu" path="res://Assets/Materials/Sand.tres" id="2_7e6fp"]
 [ext_resource type="PackedScene" uid="uid://f1v461npqvy2" path="res://Scenes/Boxes/box.tscn" id="3_4k50d"]
 [ext_resource type="PackedScene" uid="uid://ds07rj5gijpt6" path="res://Scenes/PuzzleManager/puzzle_manager.tscn" id="4_3158n"]
 [ext_resource type="PackedScene" uid="uid://cbh2ehfhrrtf3" path="res://Scenes/Puzzle Activatables/button.tscn" id="4_i4ak4"]
 [ext_resource type="PackedScene" uid="uid://42arwl0kwrok" path="res://Scenes/Puzzle Activatables/puzzle_door.tscn" id="6_ub4j8"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4k50d"]
-albedo_color = Color(0.888193, 0.79493, 0.506747, 1)
+[ext_resource type="PackedScene" uid="uid://ba3b3xquvc7oq" path="res://Scenes/Win Area/win_area.tscn" id="7_pvdih"]
+[ext_resource type="PackedScene" uid="uid://3hlumosa5q1i" path="res://Scenes/moving platform/moving_platform.tscn" id="9_4t6x8"]
 
 [node name="Test Level" type="Node3D"]
 
@@ -16,34 +16,119 @@ albedo_color = Color(0.888193, 0.79493, 0.506747, 1)
 environment = ExtResource("1_ormqy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.611596, 0.79117, 0, -0.79117, -0.611596, 0, 4.65965, 0)
+transform = Transform3D(0.739471, -0.407194, -0.536075, 0.194809, -0.632813, 0.749398, -0.644385, -0.65859, -0.388622, -8, 6.15965, 0)
 light_color = Color(0.99, 0.56232, 0.2772, 1)
 shadow_enabled = true
 
 [node name="Geometry" type="Node" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Geometry"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, -0.25, 0)
 use_collision = true
-size = Vector3(16, 0.5, 16)
-material = SubResource("StandardMaterial3D_4k50d")
+size = Vector3(9.5, 0.5, 16)
+material = ExtResource("2_7e6fp")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.25, -0.0250001)
+use_collision = true
+size = Vector3(4, 0.5, 4.05)
+material = ExtResource("2_7e6fp")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.5, 0)
+use_collision = true
+size = Vector3(0.5, 1, 15)
+material = ExtResource("2_7e6fp")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0.5, 4.75)
+use_collision = true
+size = Vector3(0.5, 1, 5.5)
+material = ExtResource("2_7e6fp")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0.5, -4.775)
+use_collision = true
+size = Vector3(0.5, 1, 5.45)
+material = ExtResource("2_7e6fp")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, 0.5, 7.75)
+use_collision = true
+size = Vector3(9.5, 1, 0.5)
+material = ExtResource("2_7e6fp")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, 0.5, -7.75)
+use_collision = true
+size = Vector3(9.5, 1, 0.5)
+material = ExtResource("2_7e6fp")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5, -1.8)
+use_collision = true
+size = Vector3(4, 3, 0.5)
+material = ExtResource("2_7e6fp")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5, 1.75)
+use_collision = true
+size = Vector3(4, 3, 0.5)
+material = ExtResource("2_7e6fp")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Geometry"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.75, 1.5, -0.025)
+use_collision = true
+size = Vector3(3.05, 3, 0.5)
+material = ExtResource("2_7e6fp")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Geometry"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.75, 1.5, 1.6)
+use_collision = true
+size = Vector3(0.8, 3, 0.5)
+material = ExtResource("2_7e6fp")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Geometry"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.75, 1.5, -1.65)
+use_collision = true
+size = Vector3(0.8, 3, 0.5)
+material = ExtResource("2_7e6fp")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Geometry"]
+transform = Transform3D(2.52084, -4.14725e-07, 2.60074, -5.383e-07, -2.46, -3.21541e-07, 2.52084, -1.10584e-07, -2.60074, -9.85, 5.45294, 0.00688648)
+polygon = PackedVector2Array(0, 0.1, 0, 1, 1, 1)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 4
+material = ExtResource("2_7e6fp")
 
 [node name="Player" parent="." instance=ExtResource("2_00vsl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25341, 1.69913, 3.5373)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.25341, 0.69913, 0.0373001)
 
 [node name="Box" parent="." instance=ExtResource("3_4k50d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0204592, 0.5, 5.61502)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6143, 3.5, 5.04352)
 
 [node name="Box2" parent="." instance=ExtResource("3_4k50d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.649097, 0.5, 1.97633)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6491, 0.5, -6.02367)
 
 [node name="Puzzle Manager" parent="." instance=ExtResource("4_3158n")]
 
 [node name="PuzzleDoor" parent="Puzzle Manager" instance=ExtResource("6_ub4j8")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.79039, 1.5, 3.87538)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.99039, 1.5, -0.02462)
 
 [node name="Button" parent="Puzzle Manager" instance=ExtResource("4_i4ak4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00203, 0.308098, 5.69999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50203, 0.00809798, 3.19999)
 
 [node name="Button2" parent="Puzzle Manager" instance=ExtResource("4_i4ak4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48104, 0.308098, 1.82022)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50203, 0.00809798, -3.30001)
+
+[node name="Win Area" parent="." instance=ExtResource("7_pvdih")]
+transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 1.9, -10.9838, 0.5, -0.0171636)
+
+[node name="Moving Platform" parent="." instance=ExtResource("9_4t6x8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.5)
+move_amount = 5.0
+move_speed = 1.0
+move_direction_x = 1
+move_direction_y = 1
+should_move = true

@@ -2,7 +2,7 @@ extends Node
 
 #region VARIABLES
 
-
+var game_won: bool = false
 
 
 

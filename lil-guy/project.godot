@@ -27,6 +27,7 @@ WindPush="Objects that can be pushed by wind"
 ButtonKey="Can be used to hold down buttons"
 Button="Object is a button in for puzzles"
 PuzzleDoor="Doors to be opened at the end of puzzles"
+Player="This is the Player"
 
 [input]
 
