@@ -1,9 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://bny0bl6t52u2v"]
+[gd_scene load_steps=18 format=3 uid="uid://bny0bl6t52u2v"]
 
 [ext_resource type="Script" uid="uid://be1hbsubp1mum" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
-[ext_resource type="Texture2D" uid="uid://dy7evt40e4r2p" path="res://Assets/Art/Player/lilguy-design1.png" id="1_uvnfx"]
-[ext_resource type="Material" uid="uid://b3dta5rcc7cj5" path="res://Assets/Materials/debug_hitbox.tres" id="2_xpcdj"]
+[ext_resource type="Texture2D" uid="uid://dy7evt40e4r2p" path="res://Visuals/Art/Player/lilguy-design1.png" id="1_uvnfx"]
+[ext_resource type="Material" uid="uid://b3dta5rcc7cj5" path="res://Visuals/Materials/debug_hitbox.tres" id="2_xpcdj"]
+[ext_resource type="Texture2D" uid="uid://dokbq6usaongs" path="res://Visuals/Art/Player/frame0000.png" id="4_74mp2"]
+[ext_resource type="PackedScene" uid="uid://byqlfw63eoe66" path="res://Visuals/Wind Push/wind_particles.tscn" id="4_htcer"]
 [ext_resource type="PackedScene" uid="uid://doof2m8gb7vpp" path="res://UI/pause_menu.tscn" id="4_mtuoh"]
+[ext_resource type="Texture2D" uid="uid://tkw1j3oo7v7r" path="res://Visuals/Art/Player/frame0001.png" id="5_oikmp"]
+[ext_resource type="AudioStream" uid="uid://dflokluu4ws08" path="res://Sound/footsteps.wav" id="6_0u5uq"]
+[ext_resource type="Texture2D" uid="uid://cj48qnlm2n5gc" path="res://Visuals/Art/Player/frame0003.png" id="6_06tpx"]
+[ext_resource type="Texture2D" uid="uid://dahlbkjym7urp" path="res://Visuals/Art/Player/frame0004.png" id="7_7g0yx"]
+[ext_resource type="AudioStream" uid="uid://v7gte8jpeevo" path="res://Sound/windpushgust.wav" id="7_jlvik"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a3d8c"]
 radius = 0.215073
@@ -13,7 +20,7 @@ height = 1.16321
 radius = 0.05
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mtuoh"]
-size = Vector3(1, 0.5, 1)
+size = Vector3(1.5, 0.5, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_htcer"]
 material = ExtResource("2_xpcdj")
@@ -31,6 +38,28 @@ animations = [{
 }],
 "loop": true,
 "name": &"Dev",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_74mp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oikmp")
+}],
+"loop": true,
+"name": &"Schmoove",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_06tpx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7g0yx")
+}],
+"loop": true,
+"name": &"WindSchmoove",
 "speed": 5.0
 }]
 
@@ -65,6 +94,7 @@ target_position = Vector3(0, 0, 0)
 collision_mask = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camroot/h/InteractShapeCast"]
+visible = false
 mesh = SubResource("BoxMesh_htcer")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Camroot/h"]
@@ -72,7 +102,21 @@ transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0.426091, 3.63
 billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_mtuoh")
-animation = &"Dev"
+animation = &"Schmoove"
+
+[node name="GPUParticles3D" parent="Camroot/h" instance=ExtResource("4_htcer")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.691292, 0.200103)
+emitting = false
 
 [node name="Pause Menu" parent="." instance=ExtResource("4_mtuoh")]
 visible = false
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0u5uq")
+volume_db = -25.0
+max_polyphony = 8
+
+[node name="Windpushgust" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jlvik")
+volume_db = -10.0
+autoplay = true

@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmgms5a7axksy"]
+[gd_scene load_steps=5 format=3 uid="uid://dmgms5a7axksy"]
 
 [ext_resource type="Script" uid="uid://klovok43ypru" path="res://Managers/game_manager.gd" id="1_hx1bj"]
 [ext_resource type="PackedScene" uid="uid://chqr0y1jpfsoq" path="res://UI/win_screen.tscn" id="2_rw0y5"]
+[ext_resource type="AudioStream" uid="uid://pu0a428qqlar" path="res://Sound/backgroundwind.wav" id="3_cme7e"]
+[ext_resource type="AudioStream" uid="uid://bbwunocu61llc" path="res://Sound/backgroundocean.wav" id="4_hr7dg"]
 
 [node name="Game Manager" type="Node3D"]
 script = ExtResource("1_hx1bj")
 
 [node name="Win Screen" parent="." instance=ExtResource("2_rw0y5")]
 visible = false
+
+[node name="WindAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cme7e")
+volume_db = -35.0
+autoplay = true
+
+[node name="WaterAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hr7dg")
+volume_db = -25.0
+autoplay = true

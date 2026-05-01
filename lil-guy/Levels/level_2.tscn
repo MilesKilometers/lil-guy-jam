@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://sobbqbfi807r"]
 
-[ext_resource type="Environment" uid="uid://da5f1054oub10" path="res://Assets/World Environment/EnvironmentSunset.tres" id="1_vltsr"]
-[ext_resource type="Material" uid="uid://bbmdjnq0ab2bu" path="res://Assets/Materials/Sand.tres" id="2_rp5ft"]
-[ext_resource type="Material" uid="uid://2e0a10dk4i4j" path="res://Assets/Materials/sand_wall.tres" id="3_qeqk5"]
+[ext_resource type="Environment" uid="uid://da5f1054oub10" path="res://Visuals/World Environment/EnvironmentSunset.tres" id="1_vltsr"]
+[ext_resource type="Material" uid="uid://bbmdjnq0ab2bu" path="res://Visuals/Materials/Sand.tres" id="2_rp5ft"]
+[ext_resource type="Material" uid="uid://2e0a10dk4i4j" path="res://Visuals/Materials/sand_wall.tres" id="3_qeqk5"]
 [ext_resource type="PackedScene" uid="uid://bny0bl6t52u2v" path="res://Scenes/Player/player.tscn" id="4_1soli"]
 [ext_resource type="PackedScene" uid="uid://f1v461npqvy2" path="res://Scenes/Boxes/box.tscn" id="5_4pbjs"]
 [ext_resource type="PackedScene" uid="uid://ds07rj5gijpt6" path="res://Scenes/PuzzleManager/puzzle_manager.tscn" id="6_lmqi1"]
@@ -163,4 +163,4 @@ move_amount = 2.5
 move_time = 1.5
 move_direction_y = -1
 should_move = true
-wait_time = 1.0
+wait_time = 3.0

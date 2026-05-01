@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ba3b3xquvc7oq"]
 
 [ext_resource type="Script" uid="uid://colluesubtguf" path="res://Scenes/Win Area/win_area.gd" id="1_s18rq"]
-[ext_resource type="Material" uid="uid://ctm0t5tcihe0v" path="res://Assets/Materials/winarea.tres" id="2_420if"]
+[ext_resource type="Material" uid="uid://ctm0t5tcihe0v" path="res://Visuals/Materials/winarea.tres" id="2_420if"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_613ib"]
 

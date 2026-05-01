@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://bhwnkis68dulj"]
 
-[ext_resource type="Environment" uid="uid://da5f1054oub10" path="res://Assets/World Environment/EnvironmentSunset.tres" id="1_trpa2"]
-[ext_resource type="Material" uid="uid://bbmdjnq0ab2bu" path="res://Assets/Materials/Sand.tres" id="2_4t7ew"]
-[ext_resource type="Material" uid="uid://2e0a10dk4i4j" path="res://Assets/Materials/sand_wall.tres" id="3_oojpf"]
+[ext_resource type="Environment" uid="uid://da5f1054oub10" path="res://Visuals/World Environment/EnvironmentSunset.tres" id="1_trpa2"]
+[ext_resource type="Material" uid="uid://bbmdjnq0ab2bu" path="res://Visuals/Materials/Sand.tres" id="2_4t7ew"]
+[ext_resource type="Material" uid="uid://2e0a10dk4i4j" path="res://Visuals/Materials/sand_wall.tres" id="3_oojpf"]
 [ext_resource type="PackedScene" uid="uid://bny0bl6t52u2v" path="res://Scenes/Player/player.tscn" id="4_7cdb2"]
 [ext_resource type="PackedScene" uid="uid://ds07rj5gijpt6" path="res://Scenes/PuzzleManager/puzzle_manager.tscn" id="5_2urlj"]
 [ext_resource type="PackedScene" uid="uid://42arwl0kwrok" path="res://Scenes/Puzzle Activatables/puzzle_door.tscn" id="6_88iqf"]

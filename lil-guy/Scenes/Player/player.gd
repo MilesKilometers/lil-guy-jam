@@ -22,11 +22,20 @@ var move_speed: float = 4.25
 
 #Actions
 @onready var interact_cast: ShapeCast3D = $Camroot/h/InteractShapeCast
+@onready var gpu_particles_3d: GPUParticles3D = $Camroot/h/GPUParticles3D
 var is_pushing: bool = false
+var is_moving: bool = false
 var push_strength: float = 20.0
 
 #Player
 @onready var player: CharacterBody3D = $"."
+@onready var animated_sprite_3d: AnimatedSprite3D = $Camroot/h/AnimatedSprite3D
+
+#Sound
+@onready var footsteps: AudioStreamPlayer = $Footsteps
+@onready var windpushgust: AudioStreamPlayer = $Windpushgust
+var wind_volume: float = 0.0
+var wind_desired_db: float = -10
 
 #endregion
 
@@ -50,13 +59,25 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_pressed("LeftMouse"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		is_pushing = true
+		gpu_particles_3d.emitting = true
 	else:
 		is_pushing = false
+		gpu_particles_3d.emitting = false
 			
-		
 	if Input.is_action_just_pressed("Jump"):
 		if is_on_floor():
-			velocity.y = 3.0	
+			velocity.y = 3.0
+			
+	if Input.is_action_pressed("MoveBack") or Input.is_action_pressed("MoveForward") or Input.is_action_pressed("MoveLeft") or Input.is_action_pressed("MoveLeft"):
+		if is_on_floor():
+			is_moving = true
+			if footsteps.playing == false:
+				footsteps.play()
+				await footsteps.finished
+	
+	else:
+		is_moving = false
+				
 
 func _process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -69,19 +90,42 @@ func _process(delta: float) -> void:
 	var lerp_interval = direction / fps
 	var lerp_position = (global_transform.origin + head_base_height) + lerp_interval
 	h.global_transform.origin = h.global_transform.origin.lerp(lerp_position, 60 * delta)
+	
+	
 
 func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	if is_pushing:
+	if windpushgust.playing == false:
+			windpushgust.play()
+	
+	if is_moving:
+		if is_pushing:
+			animated_sprite_3d.play("WindSchmoove")
+		else:
+			animated_sprite_3d.play("Schmoove")
+	elif is_pushing:
+		animated_sprite_3d.set_animation("WindSchmoove")
+		animated_sprite_3d.pause()
+	else:
+		animated_sprite_3d.set_animation("Schmoove")
+		animated_sprite_3d.pause()
+		footsteps.stop()
+	
+	if is_pushing:	
+		if windpushgust.volume_db < wind_desired_db:
+			wind_volume = move_toward(wind_volume, 1.0, delta)
+			windpushgust.volume_db = linear_to_db(wind_volume)
 		if interact_cast.is_colliding():
 			var collision_array = interact_cast.collision_result
 			for i in collision_array:
 				if i["collider"].is_in_group("WindPush"):
-					i["collider"].apply_central_force(-(player.global_position - i["collider"].global_position).normalized() * push_strength)
-	
+					i["collider"].apply_central_force((-h.global_transform.basis.z).normalized() * push_strength)
+	else:
+		wind_volume = move_toward(wind_volume, 0.0, delta)
+		windpushgust.volume_db = linear_to_db(wind_volume)
 	_move_character(delta)
 	move_and_slide()
 

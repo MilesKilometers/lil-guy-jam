@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://hwdocdycs6e4"]
 
-[ext_resource type="Environment" uid="uid://da5f1054oub10" path="res://Assets/World Environment/EnvironmentSunset.tres" id="1_ormqy"]
+[ext_resource type="Environment" uid="uid://da5f1054oub10" path="res://Visuals/World Environment/EnvironmentSunset.tres" id="1_ormqy"]
 [ext_resource type="PackedScene" uid="uid://bny0bl6t52u2v" path="res://Scenes/Player/player.tscn" id="2_00vsl"]
-[ext_resource type="Material" uid="uid://bbmdjnq0ab2bu" path="res://Assets/Materials/Sand.tres" id="2_7e6fp"]
+[ext_resource type="Material" uid="uid://bbmdjnq0ab2bu" path="res://Visuals/Materials/Sand.tres" id="2_7e6fp"]
 [ext_resource type="PackedScene" uid="uid://f1v461npqvy2" path="res://Scenes/Boxes/box.tscn" id="3_4k50d"]
 [ext_resource type="PackedScene" uid="uid://ds07rj5gijpt6" path="res://Scenes/PuzzleManager/puzzle_manager.tscn" id="4_3158n"]
 [ext_resource type="PackedScene" uid="uid://cbh2ehfhrrtf3" path="res://Scenes/Puzzle Activatables/button.tscn" id="4_i4ak4"]

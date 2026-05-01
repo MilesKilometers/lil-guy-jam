@@ -100,13 +100,6 @@ toggle_mode = true
 keep_pressed_outside = true
 text = " 3 "
 
-[node name="Button4" type="Button" parent="RightLowCenterContainer/RightHBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-toggle_mode = true
-keep_pressed_outside = true
-text = " 4 "
-
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
@@ -117,4 +110,3 @@ offset_bottom = 40.0
 [connection signal="toggled" from="RightLowCenterContainer/RightHBox/Button" to="." method="_on_button1_toggled"]
 [connection signal="toggled" from="RightLowCenterContainer/RightHBox/Button2" to="." method="_on_button2_toggled"]
 [connection signal="toggled" from="RightLowCenterContainer/RightHBox/Button3" to="." method="_on_button3_toggled"]
-[connection signal="toggled" from="RightLowCenterContainer/RightHBox/Button4" to="." method="_on_button4_toggled"]

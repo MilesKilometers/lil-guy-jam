@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://42arwl0kwrok"]
 
 [ext_resource type="Script" uid="uid://cxv7ajvap3vdw" path="res://Scenes/Puzzle Activatables/puzzle_activatable.gd" id="1_138s0"]
-[ext_resource type="Material" uid="uid://cihelxdk1ujxf" path="res://Assets/Materials/puzzle_door.tres" id="2_m0s7m"]
+[ext_resource type="Material" uid="uid://cihelxdk1ujxf" path="res://Visuals/Materials/puzzle_door.tres" id="2_m0s7m"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_138s0"]
 material = ExtResource("2_m0s7m")

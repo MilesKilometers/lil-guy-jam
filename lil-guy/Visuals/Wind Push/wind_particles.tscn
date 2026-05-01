@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://byqlfw63eoe66"]
+
+[ext_resource type="Material" uid="uid://cukxqi6br4jg1" path="res://Visuals/Materials/wind_particle.tres" id="1_8ngsf"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8irk5"]
+emission_shape_scale = Vector3(1, 1, 0.6)
+emission_shape = 1
+emission_sphere_radius = 1.5
+direction = Vector3(0, -10, 0)
+spread = 5.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_rys0i"]
+material = ExtResource("1_8ngsf")
+size = 0.05
+sections = 2
+section_length = 0.3
+section_segments = 1
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+amount = 24
+lifetime = 0.8
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_8irk5")
+draw_pass_1 = SubResource("RibbonTrailMesh_rys0i")

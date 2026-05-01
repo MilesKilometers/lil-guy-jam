@@ -8,12 +8,20 @@ var current_level: String
 var next_level: String
 
 @onready var win_screen: Control = $"Win Screen"
+@onready var wind_audio: AudioStreamPlayer = $WindAudio
+@onready var water_audio: AudioStreamPlayer = $WaterAudio
 
 #endregion
 
 func _ready() -> void:
 	GlobalSignals._update_current_level.connect(_change_level)
 	GlobalSignals._win_state.connect(_win_state)
+
+func _process(delta: float) -> void:
+	if wind_audio.playing == false:
+			wind_audio.play()
+	if water_audio.playing == false:
+			water_audio.play()
 
 func _change_level(level_name: String):
 	var level_list_keys = LevelList.level_dict.keys()
@@ -26,10 +34,10 @@ func _change_level(level_name: String):
 	next_level = LevelList.level_dict.get(level_list_keys[level_arr_pos])
 		
 	if game_won:
-		get_tree().change_scene_to_file(next_level)
+		get_tree().call_deferred("change_scene_to_file", next_level)
 		current_level = next_level
 	else:
-		get_tree().change_scene_to_file(LevelList.level_dict[level_name])
+		get_tree().call_deferred("change_scene_to_file", LevelList.level_dict[level_name])
 		current_level = level_name
 	
 func _win_state():

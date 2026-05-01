@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://3hlumosa5q1i"]
 
-[ext_resource type="Material" uid="uid://cu1i3q4y40xbf" path="res://Assets/Materials/blue_stone.tres" id="1_gpp3o"]
+[ext_resource type="Material" uid="uid://cu1i3q4y40xbf" path="res://Visuals/Materials/blue_stone.tres" id="1_gpp3o"]
 [ext_resource type="Script" uid="uid://cu7ag5oxbjrrx" path="res://Scenes/moving platform/moving_platform.gd" id="1_muegp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_muegp"]
