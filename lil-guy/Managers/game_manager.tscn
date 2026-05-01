@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmgms5a7axksy"]
+
+[ext_resource type="Script" uid="uid://klovok43ypru" path="res://Managers/game_manager.gd" id="1_hx1bj"]
+[ext_resource type="PackedScene" uid="uid://chqr0y1jpfsoq" path="res://UI/win_screen.tscn" id="2_rw0y5"]
+
+[node name="Game Manager" type="Node3D"]
+script = ExtResource("1_hx1bj")
+
+[node name="Win Screen" parent="." instance=ExtResource("2_rw0y5")]
+visible = false

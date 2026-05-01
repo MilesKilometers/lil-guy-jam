@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bny0bl6t52u2v"]
+[gd_scene load_steps=11 format=3 uid="uid://bny0bl6t52u2v"]
 
 [ext_resource type="Script" uid="uid://be1hbsubp1mum" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://dy7evt40e4r2p" path="res://Assets/Art/Player/lilguy-design1.png" id="1_uvnfx"]
+[ext_resource type="Material" uid="uid://b3dta5rcc7cj5" path="res://Assets/Materials/debug_hitbox.tres" id="2_xpcdj"]
+[ext_resource type="PackedScene" uid="uid://doof2m8gb7vpp" path="res://UI/pause_menu.tscn" id="4_mtuoh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a3d8c"]
 radius = 0.215073
@@ -10,17 +12,12 @@ height = 1.16321
 [sub_resource type="SphereShape3D" id="SphereShape3D_a3d8c"]
 radius = 0.05
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_xpcdj"]
-radius = 0.8
+[sub_resource type="BoxShape3D" id="BoxShape3D_mtuoh"]
+size = Vector3(1, 0.5, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3d8c"]
-transparency = 1
-albedo_color = Color(0.45, 0.468333, 1, 0.301961)
-
-[sub_resource type="SphereMesh" id="SphereMesh_mtuoh"]
-material = SubResource("StandardMaterial3D_a3d8c")
-radius = 0.8
-height = 1.6
+[sub_resource type="BoxMesh" id="BoxMesh_htcer"]
+material = ExtResource("2_xpcdj")
+size = Vector3(1, 0.5, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpcdj"]
 atlas = ExtResource("1_uvnfx")
@@ -62,13 +59,13 @@ spring_length = 2.5
 transform = Transform3D(1, 0, 0, 0, 0.981607, 0.190912, 0, -0.190912, 0.981608, 0, 0, 2.456)
 
 [node name="InteractShapeCast" type="ShapeCast3D" parent="Camroot/h"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.386091, -0.882685)
-shape = SubResource("SphereShape3D_xpcdj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.198182, -0.882685)
+shape = SubResource("BoxShape3D_mtuoh")
 target_position = Vector3(0, 0, 0)
 collision_mask = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camroot/h/InteractShapeCast"]
-mesh = SubResource("SphereMesh_mtuoh")
+mesh = SubResource("BoxMesh_htcer")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Camroot/h"]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0.426091, 3.63588e-06)
@@ -76,3 +73,6 @@ billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_mtuoh")
 animation = &"Dev"
+
+[node name="Pause Menu" parent="." instance=ExtResource("4_mtuoh")]
+visible = false

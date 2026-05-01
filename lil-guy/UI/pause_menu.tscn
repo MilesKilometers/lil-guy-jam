@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://doof2m8gb7vpp"]
+
+[ext_resource type="Script" uid="uid://37jppu6ob7ak" path="res://UI/pause_menu.gd" id="1_as6yf"]
+
+[node name="Pause Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_as6yf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 480.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.666667, 0, 1)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 15
+theme_override_font_sizes/font_size = 200
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LeftCenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 480.0
+offset_right = 960.0
+offset_bottom = 1080.0
+
+[node name="LeftVBox" type="VBoxContainer" parent="LeftCenterContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="LeftCenterContainer/LeftVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "RESUME"
+
+[node name="QuitButton" type="Button" parent="LeftCenterContainer/LeftVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "QUIT"
+
+[node name="RightCenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 480.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="RightVBox" type="VBoxContainer" parent="RightCenterContainer"]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="RightCenterContainer/RightVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "RESTART 
+LEVEL"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="LeftCenterContainer/LeftVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="LeftCenterContainer/LeftVBox/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="RightCenterContainer/RightVBox/RestartButton" to="." method="_on_restart_button_pressed"]

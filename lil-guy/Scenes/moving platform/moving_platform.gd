@@ -34,10 +34,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			should_move = false
 			await get_tree().create_timer(wait_time).timeout
-			print("turnin around")
 			start_pos = self.global_position
 			move_normal = -move_normal
-			print(move_normal)
 			should_move = true
 	else:
 		pass

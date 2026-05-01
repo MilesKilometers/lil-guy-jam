@@ -10,16 +10,24 @@ config_version=5
 
 [application]
 
-config/name="lil guy"
-run/main_scene="uid://hwdocdycs6e4"
+config/name="Lubber"
+run/main_scene="uid://bdwc22n8smwf6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://Managers/game_manager.gd"
 GlobalSignals="*res://Managers/global_signals.gd"
 LevelList="*res://Managers/level_list.gd"
+GameManager="*res://Managers/game_manager.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 
 [global_group]
 

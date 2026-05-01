@@ -16,8 +16,9 @@
 environment = ExtResource("1_rfktq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.739471, -0.407194, -0.536075, 0.194809, -0.632813, 0.749398, -0.644385, -0.65859, -0.388622, -8, 6.15965, 0)
-light_color = Color(0.99, 0.56232, 0.2772, 1)
+transform = Transform3D(0.494002, 0.0294129, -0.868963, 0.583721, -0.751927, 0.306392, -0.644385, -0.65859, -0.388622, -8, 6.15965, 0)
+light_color = Color(0.909861, 0.487548, 0.419933, 1)
+light_energy = 1.457
 shadow_enabled = true
 
 [node name="Geometry" type="Node" parent="."]

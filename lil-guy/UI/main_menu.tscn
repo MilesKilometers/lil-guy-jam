@@ -1,0 +1,120 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdwc22n8smwf6"]
+
+[ext_resource type="Script" uid="uid://ceidjy5y1a7mq" path="res://UI/main_menu.gd" id="1_p8ccj"]
+
+[node name="Main Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p8ccj")
+
+[node name="LeftCenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 480.0
+offset_right = 960.0
+offset_bottom = 1080.0
+
+[node name="LeftVBox" type="VBoxContainer" parent="LeftCenterContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="LeftCenterContainer/LeftVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="LeftCenterContainer/LeftVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "QUIT"
+
+[node name="RightTopCenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 480.0
+offset_right = 1920.0
+offset_bottom = 780.0
+
+[node name="RightVBox" type="VBoxContainer" parent="RightTopCenterContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Select Label" type="Label" parent="RightTopCenterContainer2/RightVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Level Select"
+horizontal_alignment = 1
+
+[node name="Current Select" type="Label" parent="RightTopCenterContainer2/RightVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Selected: X"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 480.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.666667, 0, 1)
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 15
+theme_override_font_sizes/font_size = 200
+text = "SEA LUBBER"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="RightLowCenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 480.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="RightHBox" type="HBoxContainer" parent="RightLowCenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="RightLowCenterContainer/RightHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+toggle_mode = true
+keep_pressed_outside = true
+text = " 1 "
+
+[node name="Button2" type="Button" parent="RightLowCenterContainer/RightHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+toggle_mode = true
+keep_pressed_outside = true
+text = " 2 "
+
+[node name="Button3" type="Button" parent="RightLowCenterContainer/RightHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+toggle_mode = true
+keep_pressed_outside = true
+text = " 3 "
+
+[node name="Button4" type="Button" parent="RightLowCenterContainer/RightHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+toggle_mode = true
+keep_pressed_outside = true
+text = " 4 "
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="LeftCenterContainer/LeftVBox/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="LeftCenterContainer/LeftVBox/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="toggled" from="RightLowCenterContainer/RightHBox/Button" to="." method="_on_button1_toggled"]
+[connection signal="toggled" from="RightLowCenterContainer/RightHBox/Button2" to="." method="_on_button2_toggled"]
+[connection signal="toggled" from="RightLowCenterContainer/RightHBox/Button3" to="." method="_on_button3_toggled"]
+[connection signal="toggled" from="RightLowCenterContainer/RightHBox/Button4" to="." method="_on_button4_toggled"]

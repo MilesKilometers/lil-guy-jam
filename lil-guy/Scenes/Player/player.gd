@@ -14,11 +14,11 @@ var cam_h_min: float
 var cam_h_max: float
 var cam_v_min: float = -40.0
 var cam_v_max: float = 70.0
-var cam_sensitivity: float = 0.3
+var cam_sensitivity: float = 0.15
 
 #Movement
 var direction: Vector3
-var move_speed: float = 5.0
+var move_speed: float = 4.25
 
 #Actions
 @onready var interact_cast: ShapeCast3D = $Camroot/h/InteractShapeCast
@@ -56,7 +56,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if Input.is_action_just_pressed("Jump"):
 		if is_on_floor():
-			velocity.y = 3	
+			velocity.y = 3.0	
 
 func _process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -96,8 +96,8 @@ func _move_character(delta):
 			velocity.z = direction.z * move_speed
 		else:
 			# Deceleration
-			velocity.x = lerp(velocity.x, direction.x * move_speed, delta * 8.0)
-			velocity.z = lerp(velocity.z, direction.z * move_speed, delta * 8.0)
+			velocity.x = lerp(velocity.x, direction.x * move_speed, delta * 12.0)
+			velocity.z = lerp(velocity.z, direction.z * move_speed, delta * 12.0)
 	else:
-		velocity.x = lerp(velocity.x, direction.x * move_speed, delta * 2.0)
-		velocity.z = lerp(velocity.z, direction.z * move_speed, delta * 2.0)
+		velocity.x = lerp(velocity.x, direction.x * move_speed, delta * 4.0)
+		velocity.z = lerp(velocity.z, direction.z * move_speed, delta * 4.0)
