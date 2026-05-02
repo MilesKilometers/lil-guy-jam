@@ -24,21 +24,27 @@ func _process(delta: float) -> void:
 			water_audio.play()
 
 func _change_level(level_name: String):
-	var level_list_keys = LevelList.level_dict.keys()
-	var level_arr_pos = level_list_keys.find(level_name)
+	var level_list_keys: Array = LevelList.level_dict.keys()
+	var level_arr_pos: int = level_list_keys.find(level_name)
 	print(str(level_list_keys) + "\n" + str(level_arr_pos))
-	if level_list_keys.size() <= level_arr_pos + 1:
-		level_arr_pos = 0
-	else:
-		level_arr_pos += 1
-	next_level = LevelList.level_dict.get(level_list_keys[level_arr_pos])
-		
+	
 	if game_won:
-		get_tree().call_deferred("change_scene_to_file", next_level)
-		current_level = next_level
+		get_tree().call_deferred("change_scene_to_file", LevelList.level_dict.get(level_list_keys[level_arr_pos]))
+		current_level = level_name
+		print("won " + str(next_level))
 	else:
 		get_tree().call_deferred("change_scene_to_file", LevelList.level_dict[level_name])
 		current_level = level_name
+		print("manually updated level")
+	print("end " + str(level_arr_pos))
+	game_won = false
+	
+	if level_arr_pos + 1 < level_list_keys.size():
+		level_arr_pos += 1
+		next_level = level_list_keys[level_arr_pos]
+		print("next level: " + str(next_level))
+	else:
+		print("no more levels")
 	
 func _win_state():
 	win_screen.visible = true

@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Lubber"
+config/name="Sea Lubber"
+config/description="his naem Lubber he like da sea his pirate ship got wrecked he sad now but many puzzle await sdo he enjoy do them he control da wind aint dat neato?"
 run/main_scene="uid://bdwc22n8smwf6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"

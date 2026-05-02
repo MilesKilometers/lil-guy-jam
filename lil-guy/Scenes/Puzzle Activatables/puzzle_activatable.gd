@@ -63,8 +63,9 @@ func _on_body_shape_exited(_body_rid: RID, body: Node3D, _body_shape_index: int,
 		"Button":
 			if body.is_in_group("ButtonKey"):
 				objects_array.erase(body)
-				pressed = false
-				GlobalSignals._update_puzzle_piece.emit(self, pressed)
+				if objects_array.size() == 0:
+					pressed = false
+					GlobalSignals._update_puzzle_piece.emit(self, pressed)
 
 func _puzzle_complete(solve_state):
 	if solve_state == true:	

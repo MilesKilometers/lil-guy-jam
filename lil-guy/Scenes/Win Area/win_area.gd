@@ -21,4 +21,4 @@ func _on_body_shape_entered(_body_rid: RID, body: Node3D, _body_shape_index: int
 			if final_level:
 				GlobalSignals._win_state.emit()
 			else:
-				GlobalSignals._update_current_level.emit(GameManager.current_level)
+				GlobalSignals._update_current_level.emit(GameManager.next_level)
