@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=3 format=3 uid="uid://da5f1054oub10"]
+[gd_resource type="Environment" format=3 uid="uid://da5f1054oub10"]
 
 [ext_resource type="Material" uid="uid://bkc7cf4ofwi3i" path="res://Visuals/World Environment/SkySunset.tres" id="1_oub0s"]
 

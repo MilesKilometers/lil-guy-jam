@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bny0bl6t52u2v"]
+[gd_scene format=3 uid="uid://bny0bl6t52u2v"]
 
 [ext_resource type="Script" uid="uid://be1hbsubp1mum" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://dy7evt40e4r2p" path="res://Visuals/Art/Player/lilguy-design1.png" id="1_uvnfx"]
@@ -24,7 +24,7 @@ size = Vector3(1.5, 0.5, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_htcer"]
 material = ExtResource("2_xpcdj")
-size = Vector3(1, 0.5, 1)
+size = Vector3(1.5, 0.5, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpcdj"]
 atlas = ExtResource("1_uvnfx")
@@ -63,60 +63,59 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody3D" groups=["Player"]]
+[node name="Player" type="CharacterBody3D" unique_id=1872840848 groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_a3d8c")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1030876245]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0291622, 0)
 shape = SubResource("CapsuleShape3D_a3d8c")
 
-[node name="Camroot" type="Node3D" parent="."]
+[node name="Camroot" type="Node3D" parent="." unique_id=1547380576]
 
-[node name="h" type="Node3D" parent="Camroot"]
+[node name="h" type="Node3D" parent="Camroot" unique_id=1345616825]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.426091, -3.63588e-06)
 
-[node name="v" type="Node3D" parent="Camroot/h"]
+[node name="v" type="Node3D" parent="Camroot/h" unique_id=715290015]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33455, 0)
 
-[node name="SpringArm3D" type="SpringArm3D" parent="Camroot/h/v"]
+[node name="SpringArm3D" type="SpringArm3D" parent="Camroot/h/v" unique_id=1619352389]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_a3d8c")
 spring_length = 2.5
 
-[node name="Camera3D" type="Camera3D" parent="Camroot/h/v/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="Camroot/h/v/SpringArm3D" unique_id=1825830252]
 transform = Transform3D(1, 0, 0, 0, 0.981607, 0.190912, 0, -0.190912, 0.981608, 0, 0, 2.456)
 
-[node name="InteractShapeCast" type="ShapeCast3D" parent="Camroot/h"]
+[node name="InteractShapeCast" type="ShapeCast3D" parent="Camroot/h" unique_id=866306874]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.198182, -0.882685)
 shape = SubResource("BoxShape3D_mtuoh")
 target_position = Vector3(0, 0, 0)
 collision_mask = 4
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camroot/h/InteractShapeCast"]
-visible = false
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camroot/h/InteractShapeCast" unique_id=1365490739]
 mesh = SubResource("BoxMesh_htcer")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Camroot/h"]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Camroot/h" unique_id=1588574509]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0.426091, 3.63588e-06)
 billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_mtuoh")
 animation = &"Schmoove"
 
-[node name="GPUParticles3D" parent="Camroot/h" instance=ExtResource("4_htcer")]
+[node name="GPUParticles3D" parent="Camroot/h" unique_id=1681719859 instance=ExtResource("4_htcer")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.691292, 0.200103)
 emitting = false
 
-[node name="Pause Menu" parent="." instance=ExtResource("4_mtuoh")]
+[node name="Pause Menu" parent="." unique_id=1176345980 instance=ExtResource("4_mtuoh")]
 visible = false
 
-[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+[node name="Footsteps" type="AudioStreamPlayer" parent="." unique_id=1782955958]
 stream = ExtResource("6_0u5uq")
 volume_db = -25.0
 max_polyphony = 8
 
-[node name="Windpushgust" type="AudioStreamPlayer" parent="."]
+[node name="Windpushgust" type="AudioStreamPlayer" parent="." unique_id=984636432]
 stream = ExtResource("7_jlvik")
 volume_db = -10.0
 autoplay = true

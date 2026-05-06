@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hwdocdycs6e4"]
+[gd_scene format=3 uid="uid://hwdocdycs6e4"]
 
 [ext_resource type="Environment" uid="uid://da5f1054oub10" path="res://Visuals/World Environment/EnvironmentSunset.tres" id="1_ormqy"]
 [ext_resource type="PackedScene" uid="uid://bny0bl6t52u2v" path="res://Scenes/Player/player.tscn" id="2_00vsl"]
@@ -10,91 +10,101 @@
 [ext_resource type="PackedScene" uid="uid://ba3b3xquvc7oq" path="res://Scenes/Win Area/win_area.tscn" id="7_pvdih"]
 [ext_resource type="PackedScene" uid="uid://3hlumosa5q1i" path="res://Scenes/moving platform/moving_platform tall.tscn" id="9_4t6x8"]
 
-[node name="Test Level" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4t6x8"]
+albedo_color = Color(0.96928304, 0.7362479, 0.6860747, 1)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Test Level" type="Node3D" unique_id=56906284]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=313047313]
 environment = ExtResource("1_ormqy")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=683436998]
 transform = Transform3D(0.739471, -0.407194, -0.536075, 0.194809, -0.632813, 0.749398, -0.644385, -0.65859, -0.388622, -8, 6.15965, 0)
 light_color = Color(0.99, 0.56232, 0.2772, 1)
 shadow_enabled = true
 
-[node name="Geometry" type="Node" parent="."]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Geometry"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, -0.25, 0)
+[node name="Geometry" type="CSGCombiner3D" parent="." unique_id=164989912]
 use_collision = true
-size = Vector3(9.5, 0.5, 16)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Geometry" unique_id=1791889412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, -0.25, 2)
+use_collision = true
+size = Vector3(9.5, 0.5, 12)
 material = ExtResource("2_7e6fp")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Geometry"]
+[node name="CSGBox3D13" type="CSGBox3D" parent="Geometry" unique_id=1118033879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, -0.25, -6)
+use_collision = true
+size = Vector3(9.5, 0.5, 4)
+material = SubResource("StandardMaterial3D_4t6x8")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Geometry" unique_id=1205593357]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -0.25, -0.0250001)
 use_collision = true
 size = Vector3(4, 0.5, 4.05)
 material = ExtResource("2_7e6fp")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Geometry"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Geometry" unique_id=1381396331]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.5, 0)
 use_collision = true
 size = Vector3(0.5, 1, 15)
 material = ExtResource("2_7e6fp")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Geometry"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Geometry" unique_id=940977973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0.5, 4.75)
 use_collision = true
 size = Vector3(0.5, 1, 5.5)
 material = ExtResource("2_7e6fp")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Geometry"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="Geometry" unique_id=1891739052]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 0.5, -4.775)
 use_collision = true
 size = Vector3(0.5, 1, 5.45)
 material = ExtResource("2_7e6fp")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Geometry"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Geometry" unique_id=1820176430]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, 0.5, 7.75)
 use_collision = true
 size = Vector3(9.5, 1, 0.5)
 material = ExtResource("2_7e6fp")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Geometry"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Geometry" unique_id=655833908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25, 0.5, -7.75)
 use_collision = true
 size = Vector3(9.5, 1, 0.5)
 material = ExtResource("2_7e6fp")
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Geometry"]
+[node name="CSGBox3D8" type="CSGBox3D" parent="Geometry" unique_id=820783084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5, -1.8)
 use_collision = true
 size = Vector3(4, 3, 0.5)
 material = ExtResource("2_7e6fp")
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="Geometry"]
+[node name="CSGBox3D9" type="CSGBox3D" parent="Geometry" unique_id=622647041]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5, 1.75)
 use_collision = true
 size = Vector3(4, 3, 0.5)
 material = ExtResource("2_7e6fp")
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="Geometry"]
+[node name="CSGBox3D10" type="CSGBox3D" parent="Geometry" unique_id=439931025]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.75, 1.5, -0.025)
 use_collision = true
 size = Vector3(3.05, 3, 0.5)
 material = ExtResource("2_7e6fp")
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="Geometry"]
+[node name="CSGBox3D11" type="CSGBox3D" parent="Geometry" unique_id=1226383561]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.75, 1.5, 1.6)
 use_collision = true
 size = Vector3(0.8, 3, 0.5)
 material = ExtResource("2_7e6fp")
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="Geometry"]
+[node name="CSGBox3D12" type="CSGBox3D" parent="Geometry" unique_id=138701753]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.75, 1.5, -1.65)
 use_collision = true
 size = Vector3(0.8, 3, 0.5)
 material = ExtResource("2_7e6fp")
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Geometry"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Geometry" unique_id=896211163]
 transform = Transform3D(2.52084, -4.14725e-07, 2.60074, -5.383e-07, -2.46, -3.21541e-07, 2.52084, -1.10584e-07, -2.60074, -9.85, 5.45294, 0.00688648)
 polygon = PackedVector2Array(0, 0.1, 0, 1, 1, 1)
 mode = 1
@@ -102,32 +112,32 @@ spin_degrees = 360.0
 spin_sides = 4
 material = ExtResource("2_7e6fp")
 
-[node name="Player" parent="." instance=ExtResource("2_00vsl")]
+[node name="Player" parent="." unique_id=1347227944 instance=ExtResource("2_00vsl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.25341, 0.69913, 0.0373001)
 
-[node name="Box" parent="." instance=ExtResource("3_4k50d")]
+[node name="Box" parent="." unique_id=1389164479 instance=ExtResource("3_4k50d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6143, 3.5, 5.04352)
 
-[node name="Box2" parent="." instance=ExtResource("3_4k50d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6491, 0.5, -6.02367)
+[node name="Box2" parent="." unique_id=1291395062 instance=ExtResource("3_4k50d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6491, 1, -6.02367)
 
-[node name="Puzzle Manager" parent="." instance=ExtResource("4_3158n")]
+[node name="Puzzle Manager" parent="." unique_id=1208550495 instance=ExtResource("4_3158n")]
 
-[node name="PuzzleDoor" parent="Puzzle Manager" instance=ExtResource("6_ub4j8")]
+[node name="PuzzleDoor" parent="Puzzle Manager" unique_id=657364186 instance=ExtResource("6_ub4j8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.99039, 1.5, -0.02462)
 
-[node name="Button" parent="Puzzle Manager" instance=ExtResource("4_i4ak4")]
+[node name="Button" parent="Puzzle Manager" unique_id=2002729787 instance=ExtResource("4_i4ak4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50203, 0.00809798, 3.19999)
 
-[node name="Button2" parent="Puzzle Manager" instance=ExtResource("4_i4ak4")]
+[node name="Button2" parent="Puzzle Manager" unique_id=1768061992 instance=ExtResource("4_i4ak4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50203, 0.00809798, -3.30001)
 
-[node name="Win Area" parent="." instance=ExtResource("7_pvdih")]
+[node name="Win Area" parent="." unique_id=693348096 instance=ExtResource("7_pvdih")]
 transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 1.9, -10.9838, 0.5, -0.0171636)
 
-[node name="Moving Platform" parent="." instance=ExtResource("9_4t6x8")]
+[node name="Moving Platform" parent="." unique_id=1606220120 instance=ExtResource("9_4t6x8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.5)
-move_amount = 2.9
-move_speed = 1.0
+move_amount = 2.5
+move_time = 0.5
 move_direction_y = -1
 should_move = true

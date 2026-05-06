@@ -25,7 +25,7 @@ var move_speed: float = 4.25
 @onready var gpu_particles_3d: GPUParticles3D = $Camroot/h/GPUParticles3D
 var is_pushing: bool = false
 var is_moving: bool = false
-var push_strength: float = 20.0
+var push_strength: float = 80.0
 
 #Player
 @onready var player: CharacterBody3D = $"."

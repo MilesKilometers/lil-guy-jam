@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://f1v461npqvy2"]
+[gd_scene format=3 uid="uid://f1v461npqvy2"]
 
+[ext_resource type="PhysicsMaterial" uid="uid://p3e0toft7mra" path="res://Materials/Physics Materials/box_phys_material.tres" id="1_0b7ab"]
 [ext_resource type="Script" uid="uid://b5o1t7p43bjen" path="res://Scenes/Boxes/box.gd" id="1_du2k1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2fst6"]
@@ -9,19 +10,21 @@ albedo_color = Color(0.59, 0.397267, 0.177, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_du2k1"]
 
-[node name="Box" type="RigidBody3D" groups=["ButtonKey", "WindPush"]]
-physics_interpolation_mode = 1
+[node name="Box" type="RigidBody3D" unique_id=2021389862 groups=["ButtonKey", "WindPush"]]
 collision_layer = 5
-lock_rotation = true
+mass = 5.0
+physics_material_override = ExtResource("1_0b7ab")
+max_contacts_reported = 6
+linear_damp = 1.5
 script = ExtResource("1_du2k1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="BoxCollider" type="CollisionShape3D" parent="." unique_id=1449973513]
 shape = SubResource("BoxShape3D_2fst6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=432841369]
 material_override = SubResource("StandardMaterial3D_2fst6")
 mesh = SubResource("BoxMesh_du2k1")
 
-[node name="GPUParticlesAttractorBox3D" type="GPUParticlesAttractorBox3D" parent="."]
+[node name="GPUParticlesAttractorBox3D" type="GPUParticlesAttractorBox3D" parent="." unique_id=355574564]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102524, 0)
 size = Vector3(1.3, 1.2, 1.3)
